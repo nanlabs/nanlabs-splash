@@ -5,6 +5,7 @@
 
   --main-bg-light-color: #e9ebf4;
   --main-bg-dark-color: #082032;
+  --background-blur: 50px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
