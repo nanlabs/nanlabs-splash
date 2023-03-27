@@ -18,6 +18,48 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --grey12: #171717;
+  --grey11: #202020;
+  --grey10: #333333;
+  --grey9: #464646;
+  --grey8: #696969;
+  --grey7: #858585;
+  --grey6: #adadad;
+  --grey5: #c9c9c9;
+  --grey4: #dedede;
+  --grey3: #ececec;
+  --grey2: #f2f2f2;
+  --grey1: #ffffff;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+::selection {
+  background-color: #ffffff30;
+  color: var(--grey2);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--grey12);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey10);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grey9);
 }
 
 body {
