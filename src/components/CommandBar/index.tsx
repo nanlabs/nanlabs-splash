@@ -149,7 +149,7 @@ const actions = [...blurActions, ...themeActions];
 
 const CommandBar = () => (
   <KBarPortal>
-    <KBarPositioner>
+    <KBarPositioner style={{ zIndex: "10" }}>
       <KBarAnimator style={animatorStyle}>
         <KBarSearch style={searchStyle} />
         <RenderResults />

@@ -1,4 +1,6 @@
 import { SvgBlob } from "../Blobs";
+import Lottie from "lottie-react";
+
 import "./styles.css";
 
 const Splash = () => (
