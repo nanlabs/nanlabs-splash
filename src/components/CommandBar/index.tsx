@@ -10,8 +10,8 @@ import {
   useMatches,
   ActionImpl,
 } from "kbar";
-import { changeCustomProperty, changeTheme } from "../../utils";
-import { emitter } from "../../events";
+import { changeCustomProperty, changeTheme } from "@/utils";
+import { emitter } from "@/events";
 
 const searchStyle = {
   padding: "16px",

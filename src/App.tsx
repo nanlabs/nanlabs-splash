@@ -1,9 +1,9 @@
 import React, { FC, ReactNode } from "react";
 import "./App.css";
-import CommandBarProvider from "./components/CommandBar";
-import LottieConfetti from "./components/LottieConfetti";
-import Sparkles from "./components/Sparkles";
-import Splash from "./components/Splash";
+import CommandBarProvider from "@/components/CommandBar";
+import LottieConfetti from "@/components/LottieConfetti";
+import Sparkles from "@/components/Sparkles";
+import Splash from "@/components/Splash";
 
 const Background: FC<{ children: ReactNode }> = ({ children }) => {
   return (

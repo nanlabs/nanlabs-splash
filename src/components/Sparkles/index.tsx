@@ -1,6 +1,6 @@
 import { CSSProperties, FC, ReactNode, useState } from "react";
-import { random, range } from "../../utils";
-import useRandomInterval from "../../hooks/useRandomInterval";
+import { random, range } from "@/utils";
+import useRandomInterval from "@/hooks/useRandomInterval";
 import "./styles.css";
 
 const DEFAULT_COLOR = "#FFC700";

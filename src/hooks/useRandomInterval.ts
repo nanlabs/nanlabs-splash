@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import { random } from "../utils";
+import { random } from "@/utils";
 
 const useRandomInterval = (
   callback: () => void,

@@ -15,3 +15,11 @@
   grid-template-rows: repeat(16, 1fr);
   filter: blur(var(--background-blur))
 }
+
+@media (max-width: 512px) {
+  .splash {
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(14, 1fr);
+    filter: blur(var(--background-blur))
+  }
+}

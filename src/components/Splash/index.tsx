@@ -1,4 +1,4 @@
-import { SvgBlob } from "../Blobs";
+import { SvgBlob } from "@/components/Blobs";
 import Lottie from "lottie-react";
 
 import "./styles.css";
@@ -54,7 +54,7 @@ const Splash = () => (
     <div style={{ gridColumn: "12 / 15", gridRow: "7 / 10" }}>
       <SvgBlob patternId={16} />
     </div>
-    <div style={{ gridColumn: "14 / 17", gridRow: "12 / 15" }}>
+    <div style={{ gridColumn: "14 / 17", gridRow: "13 / 16" }}>
       <SvgBlob patternId={9} />
     </div>
   </div>

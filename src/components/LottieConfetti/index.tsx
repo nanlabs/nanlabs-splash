@@ -1,7 +1,6 @@
-import { useKBar } from "kbar";
 import { LottieOptions, useLottie } from "lottie-react";
 import { useEffect } from "react";
-import { emitter } from "../../events";
+import { emitter } from "@/events";
 import confetti from "./confetti.json";
 import confetti2 from "./confetti2.json";
 
