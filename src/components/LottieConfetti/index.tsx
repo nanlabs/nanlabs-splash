@@ -1,6 +1,7 @@
 import { LottieOptions, useLottie } from "lottie-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { emitter } from "@/events";
+import { useInterval } from "usehooks-ts";
 import confetti from "./confetti.json";
 import confetti2 from "./confetti2.json";
 
@@ -21,6 +22,7 @@ const LottieConfetti = () => {
   const lottie1 = useLottie(options(confetti), lottieStyles);
   const lottie2 = useLottie(options(confetti), lottieStyles);
   const lottie3 = useLottie(options(confetti2), lottieStyles);
+  const [loop, setLoop] = useState<number | null>(null);
 
   const play = () => {
     lottie1.setSpeed(0.8);
@@ -36,7 +38,12 @@ const LottieConfetti = () => {
     return unbind;
   }, []);
 
-  emitter.on("confetti", play);
+  useEffect(() => {
+    const unbind = emitter.on("confettiInLoop", setLoop);
+    return unbind;
+  }, []);
+
+  useInterval(play, loop);
 
   return (
     <div className="lottie-container">

@@ -152,9 +152,7 @@ const themeActions = [
   },
 ];
 
-const actions = [
-  ...blurActions,
-  ...themeActions,
+const confettiActions = [
   {
     id: "confetti",
     name: "Confetti",
@@ -162,7 +160,35 @@ const actions = [
     shortcut: ["c"],
     perform: () => emitter.emit("confetti"),
   },
+  {
+    id: "confettiLoop",
+    name: "Confetti loop!",
+    keywords: "Confetti",
+    shortcut: ["c", "l"],
+  },
+  {
+    id: "confettiLoopEnabled",
+    name: "Enabled",
+    keywords: "Confetti",
+    parent: "confettiLoop",
+    perform: () => {
+      emitter.emit("confetti");
+      emitter.emit("confettiInLoop", 3000);
+    },
+  },
+  {
+    id: "confettiLoopDisabled",
+    name: "Disabled",
+    keywords: "Confetti",
+    parent: "confettiLoop",
+    perform: () => {
+      emitter.emit("confetti");
+      emitter.emit("confettiInLoop", null);
+    },
+  },
 ];
+
+const actions = [...blurActions, ...themeActions, ...confettiActions];
 
 const CommandBar = () => (
   <KBarPortal>
