@@ -1,5 +1,7 @@
 import { useKBar } from "kbar";
 import { LottieOptions, useLottie } from "lottie-react";
+import { useEffect } from "react";
+import { emitter } from "../../events";
 import confetti from "./confetti.json";
 import confetti2 from "./confetti2.json";
 
@@ -30,6 +32,13 @@ const LottieConfetti = () => {
     lottie3.goToAndPlay(0);
   };
 
+  useEffect(() => {
+    const unbind = emitter.on("confetti", play);
+    return unbind;
+  }, []);
+
+  emitter.on("confetti", play);
+
   return (
     <div className="lottie-container">
       <div style={{ gridColumn: "1 / 10", gridRow: "1 / 17" }}>
@@ -41,7 +50,6 @@ const LottieConfetti = () => {
       <div style={{ gridColumn: "4 / 14", gridRow: "1 / 17" }}>
         {lottie3.View}
       </div>
-      <button onClick={play}>show</button>
     </div>
   );
 };

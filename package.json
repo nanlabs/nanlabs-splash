@@ -11,6 +11,7 @@
   "dependencies": {
     "kbar": "^0.1.0-beta.40",
     "lottie-react": "^2.4.0",
+    "nanoevents": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

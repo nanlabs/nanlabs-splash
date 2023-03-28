@@ -10,7 +10,8 @@ import {
   useMatches,
   ActionImpl,
 } from "kbar";
-import { changeCustomProperty } from "../../utils";
+import { changeCustomProperty, changeTheme } from "../../utils";
+import { emitter } from "../../events";
 
 const searchStyle = {
   padding: "16px",
@@ -134,18 +135,34 @@ const themeActions = [
     name: "dark",
     keywords: "Theme",
     parent: "theme",
-    perform: () => alert("dark"),
+    perform: () => {
+      changeTheme("dark");
+      changeBlur(40);
+    },
   },
   {
     id: "light",
     name: "light",
     keywords: "Theme",
     parent: "theme",
-    perform: () => alert("light"),
+    perform: () => {
+      changeTheme("light");
+      changeBlur(10);
+    },
   },
 ];
 
-const actions = [...blurActions, ...themeActions];
+const actions = [
+  ...blurActions,
+  ...themeActions,
+  {
+    id: "confetti",
+    name: "Confetti",
+    keywords: "Confetti",
+    shortcut: ["c"],
+    perform: () => emitter.emit("confetti"),
+  },
+];
 
 const CommandBar = () => (
   <KBarPortal>

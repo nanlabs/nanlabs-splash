@@ -13,3 +13,7 @@ export const changeCustomProperty = (
 ) => {
   element.style.setProperty(property, value);
 };
+
+export const changeTheme = (theme: "dark" | "light") => {
+  document.documentElement.setAttribute("data-theme", theme);
+};

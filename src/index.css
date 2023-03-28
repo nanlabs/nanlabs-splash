@@ -5,13 +5,15 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --main-bg-light-color: #e9ebf4;
-  --main-bg-dark-color: #082032;
+  --background-color: #082032;
   --background-blur: 50px;
+
+  --light-background-color: #7378ff;
+  --dark-background-color: #082032;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: var(--main-bg-dark-color);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,6 +29,14 @@
   --shadow: rgb(0 0 0 / 50%) 0px 16px 70px;
 
   --unit: 8px;
+}
+
+html[data-theme='light'] {
+  --background-color: var(--light-background-color);
+}
+
+html[data-theme='dark'] {
+  --background-color: var(--dark-background-color);
 }
 
 * {
@@ -50,6 +60,6 @@ h1 {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: var(--main-bg-light-color);
+    background-color: var(--light-background-color);
   }
 }
