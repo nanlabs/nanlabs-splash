@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import "./App.css";
+import Messages, { SendMessage } from "./components/Messages";
 import Sparkles from "./components/Sparkles";
 import Splash from "./components/Splash";
 
@@ -24,6 +25,8 @@ const App = () => {
           it <Sparkles>shows</Sparkles>
         </strong>
       </main>
+      <Messages />
+      <SendMessage />
     </Background>
   );
 };
