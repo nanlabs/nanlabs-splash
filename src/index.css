@@ -7,9 +7,12 @@
 
   --background-color: #082032;
   --background-blur: 50px;
-
   --light-background-color: #7378ff;
   --dark-background-color: #082032;
+
+  --z-index-main: 3;
+  --z-index-lottie: 2;
+  --z-index-splash: 1;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -20,15 +23,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-
-  --background: rgb(28 28 29);
-  --a1: rgb(53 53 54);
-  --a2: rgba(255 255 255 / 0.1);
-  --foreground: rgba(252 252 252 / 0.9);
-  --shadow: rgb(0 0 0 / 50%) 0px 16px 70px;
-
-  --unit: 8px;
 }
 
 html[data-theme='light'] {

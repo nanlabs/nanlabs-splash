@@ -1,4 +1,5 @@
 .splash-container {
+  z-index: var(--z-index-splash);
   position: absolute;
   top: 0;
   bottom: 0;

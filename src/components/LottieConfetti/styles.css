@@ -5,7 +5,7 @@
   right: 0;
   left: 0;
   display: grid;
-  z-index: 1;
+  z-index: var(--z-index-lottie);
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
 }

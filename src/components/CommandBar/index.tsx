@@ -13,6 +13,8 @@ import {
 import { changeCustomProperty, changeTheme } from "@/utils";
 import { emitter } from "@/events";
 
+import "./styles.css";
+
 const searchStyle = {
   padding: "16px",
   fontSize: "16px",
@@ -20,18 +22,18 @@ const searchStyle = {
   boxSizing: "border-box" as React.CSSProperties["boxSizing"],
   outline: "none",
   border: "none",
-  background: "var(--background)",
-  color: "var(--foreground)",
+  background: "var(--command-bar-background)",
+  color: "var(--command-bar-foreground)",
 };
 
 const animatorStyle = {
   maxWidth: "600px",
   width: "100%",
-  background: "var(--background)",
-  color: "var(--foreground)",
+  background: "var(--command-bar-background)",
+  color: "var(--command-bar-foreground)",
   borderRadius: "8px",
   overflow: "hidden",
-  boxShadow: "var(--shadow)",
+  boxShadow: "var(--command-bar-shadow)",
 };
 
 const groupNameStyle = {
@@ -252,9 +254,11 @@ const ResultItem = React.forwardRef(
         ref={ref}
         style={{
           padding: "12px 16px",
-          background: active ? "var(--a1)" : "transparent",
+          background: active
+            ? "var(--command-bar-result-items)"
+            : "transparent",
           borderLeft: `2px solid ${
-            active ? "var(--foreground)" : "transparent"
+            active ? "var(--command-bar-foreground)" : "transparent"
           }`,
           display: "flex",
           alignItems: "center",

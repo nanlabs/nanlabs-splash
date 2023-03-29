@@ -1,0 +1,6 @@
+:root {
+  --command-bar-background: rgb(28 28 29);
+  --command-bar-foreground: rgba(252 252 252 / 0.9);
+  --command-bar-shadow: rgb(0 0 0 / 50%) 0px 16px 70px;
+  --command-bar-result-items: rgb(53 53 54);
+}
