@@ -4,6 +4,11 @@ import CommandBarProvider from "@/components/CommandBar";
 import LottieConfetti from "@/components/LottieConfetti";
 import Sparkles from "@/components/Sparkles";
 import Splash from "@/components/Splash";
+import AnimatedImage, {
+  BouncingBall,
+  BouncingImage,
+  ImageA,
+} from "./components/ImgBouncer";
 
 const Background: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -27,6 +32,7 @@ const App = () => {
           <strong>
             <Sparkles>it shows</Sparkles>
           </strong>
+          <BouncingBall />
         </main>
       </Background>
     </CommandBarProvider>
