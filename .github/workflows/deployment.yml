@@ -1,5 +1,8 @@
 name: Deployment to GitHub Pages
 
+permissions:
+  contents: write
+
 on:
   # call this workflow when the workflow Main Validation is completed after a push to main
   workflow_run:
