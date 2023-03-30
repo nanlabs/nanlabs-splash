@@ -30,11 +30,9 @@
   z-index: 2;
 }
 
-
 .sparkle-svg {
   display: block;
 }
-
 
 .child-wrapper {
   position: relative;
@@ -44,11 +42,10 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .sparkle-wrapper {
-    animation: come-in-out  700ms forwards;
+    animation: come-in-out 700ms forwards;
   }
-  
+
   .sparkle-svg {
     animation: spin 1000ms linear;
   }
-
 }

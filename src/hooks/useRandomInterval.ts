@@ -1,11 +1,7 @@
-import { useCallback, useEffect, useRef } from "react";
-import { random } from "@/utils";
+import { useCallback, useEffect, useRef } from 'react';
+import { random } from '@/utils';
 
-const useRandomInterval = (
-  callback: () => void,
-  minDelay?: number,
-  maxDelay?: number
-) => {
+const useRandomInterval = (callback: () => void, minDelay?: number, maxDelay?: number) => {
   const timeoutId = useRef<number | null>(null);
   const savedCallback = useRef(callback);
 

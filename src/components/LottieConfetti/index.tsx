@@ -1,15 +1,15 @@
-import { LottieOptions, useLottie } from "lottie-react";
-import { useEffect, useState } from "react";
-import { emitter } from "@/events";
-import { useInterval } from "usehooks-ts";
-import confetti from "./confetti.json";
-import confetti2 from "./confetti2.json";
+import { LottieOptions, useLottie } from 'lottie-react';
+import { useEffect, useState } from 'react';
+import { emitter } from '@/events';
+import { useInterval } from 'usehooks-ts';
+import confetti from './confetti.json';
+import confetti2 from './confetti2.json';
 
-import "./styles.css";
+import './styles.css';
 
 const lottieStyles = {
-  width: "100%",
-  height: "100%",
+  width: '100%',
+  height: '100%',
 };
 
 const options = (animation: unknown): LottieOptions => ({
@@ -34,12 +34,12 @@ const LottieConfetti = () => {
   };
 
   useEffect(() => {
-    const unbind = emitter.on("confetti", play);
+    const unbind = emitter.on('confetti', play);
     return unbind;
   }, []);
 
   useEffect(() => {
-    const unbind = emitter.on("confettiInLoop", setLoop);
+    const unbind = emitter.on('confettiInLoop', setLoop);
     return unbind;
   }, []);
 
@@ -47,15 +47,9 @@ const LottieConfetti = () => {
 
   return (
     <div className="lottie-container">
-      <div style={{ gridColumn: "1 / 10", gridRow: "1 / 17" }}>
-        {lottie1.View}
-      </div>
-      <div style={{ gridColumn: "9 / 17", gridRow: "1 / 17" }}>
-        {lottie2.View}
-      </div>
-      <div style={{ gridColumn: "4 / 14", gridRow: "1 / 17" }}>
-        {lottie3.View}
-      </div>
+      <div style={{ gridColumn: '1 / 10', gridRow: '1 / 17' }}>{lottie1.View}</div>
+      <div style={{ gridColumn: '9 / 17', gridRow: '1 / 17' }}>{lottie2.View}</div>
+      <div style={{ gridColumn: '4 / 14', gridRow: '1 / 17' }}>{lottie3.View}</div>
     </div>
   );
 };

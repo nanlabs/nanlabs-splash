@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode } from 'react';
 import {
   ActionId,
   KBarAnimator,
@@ -9,146 +9,145 @@ import {
   KBarResults,
   useMatches,
   ActionImpl,
-} from "kbar";
-import { changeCustomProperty, changeTheme } from "@/utils";
-import { emitter } from "@/events";
+} from 'kbar';
+import { changeCustomProperty, changeTheme } from '@/utils';
+import { emitter } from '@/events';
 
-import "./styles.css";
+import './styles.css';
 
 const searchStyle = {
-  padding: "16px",
-  fontSize: "16px",
-  width: "100%",
-  boxSizing: "border-box" as React.CSSProperties["boxSizing"],
-  outline: "none",
-  border: "none",
-  background: "var(--command-bar-background)",
-  color: "var(--command-bar-foreground)",
+  padding: '16px',
+  fontSize: '16px',
+  width: '100%',
+  boxSizing: 'border-box' as React.CSSProperties['boxSizing'],
+  outline: 'none',
+  border: 'none',
+  background: 'var(--command-bar-background)',
+  color: 'var(--command-bar-foreground)',
 };
 
 const animatorStyle = {
-  maxWidth: "600px",
-  width: "100%",
-  background: "var(--command-bar-background)",
-  color: "var(--command-bar-foreground)",
-  borderRadius: "8px",
-  overflow: "hidden",
-  boxShadow: "var(--command-bar-shadow)",
+  maxWidth: '600px',
+  width: '100%',
+  background: 'var(--command-bar-background)',
+  color: 'var(--command-bar-foreground)',
+  borderRadius: '8px',
+  overflow: 'hidden',
+  boxShadow: 'var(--command-bar-shadow)',
 };
 
 const groupNameStyle = {
-  padding: "8px 16px",
-  fontSize: "10px",
-  textTransform: "uppercase" as const,
+  padding: '8px 16px',
+  fontSize: '10px',
+  textTransform: 'uppercase' as const,
   opacity: 0.5,
 };
 
-const changeBlur = (value: number) =>
-  changeCustomProperty("--background-blur", `${value}px`);
+const changeBlur = (value: number) => changeCustomProperty('--background-blur', `${value}px`);
 
 const blurActions = [
   {
-    id: "blur",
-    name: "Blur",
-    shortcut: ["b"],
-    keywords: "Blur",
+    id: 'blur',
+    name: 'Blur',
+    shortcut: ['b'],
+    keywords: 'Blur',
   },
   {
-    id: "blur0",
-    name: "0",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur0',
+    name: '0',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(0),
   },
   {
-    id: "blur10",
-    name: "10",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur10',
+    name: '10',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(10),
   },
   {
-    id: "blur20",
-    name: "20",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur20',
+    name: '20',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(20),
   },
   {
-    id: "blur30",
-    name: "30",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur30',
+    name: '30',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(30),
   },
   {
-    id: "blur40",
-    name: "40",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur40',
+    name: '40',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(40),
   },
   {
-    id: "blur50",
-    name: "50",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur50',
+    name: '50',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(50),
   },
   {
-    id: "blur60",
-    name: "60",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur60',
+    name: '60',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(60),
   },
   {
-    id: "blur70",
-    name: "70",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur70',
+    name: '70',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(70),
   },
   {
-    id: "blur80",
-    name: "80",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur80',
+    name: '80',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(80),
   },
   {
-    id: "blur90",
-    name: "90",
-    keywords: "Blur",
-    parent: "blur",
+    id: 'blur90',
+    name: '90',
+    keywords: 'Blur',
+    parent: 'blur',
     perform: () => changeBlur(90),
   },
 ];
 
 const themeActions = [
   {
-    id: "theme",
-    name: "Theme",
-    shortcut: ["t"],
-    keywords: "Theme",
+    id: 'theme',
+    name: 'Theme',
+    shortcut: ['t'],
+    keywords: 'Theme',
   },
   {
-    id: "dark",
-    name: "dark",
-    keywords: "Theme",
-    parent: "theme",
+    id: 'dark',
+    name: 'dark',
+    keywords: 'Theme',
+    parent: 'theme',
     perform: () => {
-      changeTheme("dark");
+      changeTheme('dark');
       changeBlur(40);
     },
   },
   {
-    id: "light",
-    name: "light",
-    keywords: "Theme",
-    parent: "theme",
+    id: 'light',
+    name: 'light',
+    keywords: 'Theme',
+    parent: 'theme',
     perform: () => {
-      changeTheme("light");
+      changeTheme('light');
       changeBlur(10);
     },
   },
@@ -156,36 +155,36 @@ const themeActions = [
 
 const confettiActions = [
   {
-    id: "confetti",
-    name: "Confetti",
-    keywords: "Confetti",
-    shortcut: ["c"],
-    perform: () => emitter.emit("confetti"),
+    id: 'confetti',
+    name: 'Confetti',
+    keywords: 'Confetti',
+    shortcut: ['c'],
+    perform: () => emitter.emit('confetti'),
   },
   {
-    id: "confettiLoop",
-    name: "Confetti loop!",
-    keywords: "Confetti",
-    shortcut: ["c", "l"],
+    id: 'confettiLoop',
+    name: 'Confetti loop!',
+    keywords: 'Confetti',
+    shortcut: ['c', 'l'],
   },
   {
-    id: "confettiLoopEnabled",
-    name: "Enabled",
-    keywords: "Confetti",
-    parent: "confettiLoop",
+    id: 'confettiLoopEnabled',
+    name: 'Enabled',
+    keywords: 'Confetti',
+    parent: 'confettiLoop',
     perform: () => {
-      emitter.emit("confetti");
-      emitter.emit("confettiInLoop", 3000);
+      emitter.emit('confetti');
+      emitter.emit('confettiInLoop', 3000);
     },
   },
   {
-    id: "confettiLoopDisabled",
-    name: "Disabled",
-    keywords: "Confetti",
-    parent: "confettiLoop",
+    id: 'confettiLoopDisabled',
+    name: 'Disabled',
+    keywords: 'Confetti',
+    parent: 'confettiLoop',
     perform: () => {
-      emitter.emit("confetti");
-      emitter.emit("confettiInLoop", null);
+      emitter.emit('confetti');
+      emitter.emit('confettiInLoop', null);
     },
   },
 ];
@@ -194,7 +193,7 @@ const actions = [...blurActions, ...themeActions, ...confettiActions];
 
 const CommandBar = () => (
   <KBarPortal>
-    <KBarPositioner style={{ zIndex: "10" }}>
+    <KBarPositioner style={{ zIndex: '10' }}>
       <KBarAnimator style={animatorStyle}>
         <KBarSearch style={searchStyle} />
         <RenderResults />
@@ -210,14 +209,10 @@ const RenderResults = () => {
     <KBarResults
       items={results}
       onRender={({ item, active }) =>
-        typeof item === "string" ? (
+        typeof item === 'string' ? (
           <div style={groupNameStyle}>{item}</div>
         ) : (
-          <ResultItem
-            action={item}
-            active={active}
-            currentRootActionId={rootActionId}
-          />
+          <ResultItem action={item} active={active} currentRootActionId={rootActionId} />
         )
       }
     />
@@ -235,13 +230,11 @@ const ResultItem = React.forwardRef(
       active: boolean;
       currentRootActionId: ActionId;
     },
-    ref: React.Ref<HTMLDivElement>
+    ref: React.Ref<HTMLDivElement>,
   ) => {
     const ancestors = React.useMemo(() => {
       if (!currentRootActionId) return action.ancestors;
-      const index = action.ancestors.findIndex(
-        (ancestor) => ancestor.id === currentRootActionId
-      );
+      const index = action.ancestors.findIndex((ancestor) => ancestor.id === currentRootActionId);
       // +1 removes the currentRootAction; e.g.
       // if we are on the "Set theme" parent action,
       // the UI should not display "Set theme… > Dark"
@@ -253,29 +246,25 @@ const ResultItem = React.forwardRef(
       <div
         ref={ref}
         style={{
-          padding: "12px 16px",
-          background: active
-            ? "var(--command-bar-result-items)"
-            : "transparent",
-          borderLeft: `2px solid ${
-            active ? "var(--command-bar-foreground)" : "transparent"
-          }`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          cursor: "pointer",
+          padding: '12px 16px',
+          background: active ? 'var(--command-bar-result-items)' : 'transparent',
+          borderLeft: `2px solid ${active ? 'var(--command-bar-foreground)' : 'transparent'}`,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          cursor: 'pointer',
         }}
       >
         <div
           style={{
-            display: "flex",
-            gap: "8px",
-            alignItems: "center",
+            display: 'flex',
+            gap: '8px',
+            alignItems: 'center',
             fontSize: 14,
           }}
         >
           {action.icon && action.icon}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div>
               {ancestors.length > 0 &&
                 ancestors.map((ancestor) => (
@@ -299,23 +288,18 @@ const ResultItem = React.forwardRef(
                 ))}
               <span>{action.name}</span>
             </div>
-            {action.subtitle && (
-              <span style={{ fontSize: 12 }}>{action.subtitle}</span>
-            )}
+            {action.subtitle && <span style={{ fontSize: 12 }}>{action.subtitle}</span>}
           </div>
         </div>
         {action.shortcut?.length ? (
-          <div
-            aria-hidden
-            style={{ display: "grid", gridAutoFlow: "column", gap: "4px" }}
-          >
+          <div aria-hidden style={{ display: 'grid', gridAutoFlow: 'column', gap: '4px' }}>
             {action.shortcut.map((sc) => (
               <kbd
                 key={sc}
                 style={{
-                  padding: "4px 6px",
-                  background: "rgba(0 0 0 / .1)",
-                  borderRadius: "4px",
+                  padding: '4px 6px',
+                  background: 'rgba(0 0 0 / .1)',
+                  borderRadius: '4px',
                   fontSize: 14,
                 }}
               >
@@ -326,8 +310,10 @@ const ResultItem = React.forwardRef(
         ) : null}
       </div>
     );
-  }
+  },
 );
+
+ResultItem.displayName = 'ResultItem';
 
 const CommandBarProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (

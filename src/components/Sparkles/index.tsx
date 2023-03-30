@@ -1,9 +1,9 @@
-import { CSSProperties, FC, ReactNode, useState } from "react";
-import { random, range } from "@/utils";
-import useRandomInterval from "@/hooks/useRandomInterval";
-import "./styles.css";
+import { CSSProperties, FC, ReactNode, useState } from 'react';
+import { random, range } from '@/utils';
+import useRandomInterval from '@/hooks/useRandomInterval';
+import './styles.css';
 
-const DEFAULT_COLOR = "#FFC700";
+const DEFAULT_COLOR = '#FFC700';
 
 const pickColor = (colors: string[]) => colors[random(0, colors.length - 1)];
 
@@ -13,8 +13,8 @@ const generateSparkle = (color: string) => ({
   color,
   size: random(15, 30),
   style: {
-    top: random(-50, 90) + "%",
-    left: random(-20, 100) + "%",
+    top: random(-50, 90) + '%',
+    left: random(-20, 100) + '%',
   },
 });
 
@@ -26,16 +26,10 @@ type SparkleProps = {
 
 const Sparkle: FC<SparkleProps> = ({ size, color, style }) => {
   const path =
-    "M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z";
+    'M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z';
   return (
     <span className="sparkle-wrapper" style={style}>
-      <svg
-        className="sparkle-svg"
-        width={size}
-        height={size}
-        viewBox="0 0 68 68"
-        fill="none"
-      >
+      <svg className="sparkle-svg" width={size} height={size} viewBox="0 0 68 68" fill="none">
         <path d={path} fill={color} />
       </svg>
     </span>
@@ -48,11 +42,7 @@ type SparklesProps = {
   children: ReactNode;
 };
 
-const Sparkles: FC<SparklesProps> = ({
-  colors = [DEFAULT_COLOR],
-  children,
-  ...delegated
-}) => {
+const Sparkles: FC<SparklesProps> = ({ colors = [DEFAULT_COLOR], children, ...delegated }) => {
   const [sparkles, setSparkles] = useState(() => {
     return range(1, 3).map(() => generateSparkle(pickColor(colors)));
   });
@@ -62,7 +52,7 @@ const Sparkles: FC<SparklesProps> = ({
       setSparkles([...sparkles, sparkle]);
     },
     50,
-    250
+    250,
   );
 
   useRandomInterval(
@@ -75,17 +65,12 @@ const Sparkles: FC<SparklesProps> = ({
       setSparkles(nextSparkles);
     },
     50,
-    550
+    550,
   );
   return (
     <span className="wrapper" {...delegated}>
       {sparkles.map((sparkle) => (
-        <Sparkle
-          key={sparkle.id}
-          color={sparkle.color}
-          size={sparkle.size}
-          style={sparkle.style}
-        />
+        <Sparkle key={sparkle.id} color={sparkle.color} size={sparkle.size} style={sparkle.style} />
       ))}
       <span className="child-wrapper">{children}</span>
     </span>
