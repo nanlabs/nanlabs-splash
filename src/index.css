@@ -11,6 +11,14 @@
   --light-background-color: #7378ff;
   --dark-background-color: #082032;
 
+  --A-keypad-button-color: #ddf505;
+  --B-keypad-button-color: #488cfb;
+  --C-keypad-button-color: #29dbbc;
+  --D-keypad-button-color: #ff9f0e;
+  --E-keypad-button-color: #e440bb;
+  --F-keypad-button-color: #655adc;
+  --G-keypad-button-color: #488cfb;
+
   --z-index-animImg: 4;
   --z-index-main: 3;
   --z-index-lottie: 2;
