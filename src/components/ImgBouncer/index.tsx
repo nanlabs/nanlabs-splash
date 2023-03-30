@@ -1,13 +1,12 @@
-import { FC, ReactNode, useEffect, useRef } from "react";
 import "./styles.css";
 
-type AnimatedImageProps = {
+type ImgBouncerProps = {
   src?: string;
   width?: number;
   height?: number;
 };
 
-const BouncingBall = ({ src = "vite.svg" }) => {
+const ImgBouncer = ({ src = "vite.svg" }) => {
   const width = window.innerWidth / 5;
   const height = window.innerHeight / 5;
 
@@ -18,4 +17,4 @@ const BouncingBall = ({ src = "vite.svg" }) => {
   );
 };
 
-export default BouncingBall;
+export default ImgBouncer;
