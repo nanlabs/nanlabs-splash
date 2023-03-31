@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap');
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 4rem);
+}
+
+.title-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  transform: skew(0, -10deg);
+}
+
+.top-title {
+  order: 1;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+}
+
+.bottom-title {
+  order: 3;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-top: 2rem;
+  padding-left: 2rem;
+}
+
+.sweet-title {
+  order: 2;
+  color: #fde9ff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.75em;
+  text-align: center;
+  text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff,
+    4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb, 7px 5px 1px #4af7ff, 6px 6px 1px #165bfb,
+    8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
+
+  span {
+    display: block;
+    position: relative;
+
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      text-shadow: 2px 2px 1px #e94aa1, -1px -1px 1px #c736f9, -2px 2px 1px #e94aa1, 1px -1px 1px #f736f9;
+      z-index: 1;
+    }
+
+    &:nth-child(1) {
+      padding-right: 2.25rem;
+    }
+
+    &:nth-child(2) {
+      padding-left: 2.25rem;
+    }
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  // border: 1px solid #fff1;
+  z-index: 2;
+}
+
+@for $i from 0 to 15 {
+  .cell:nth-child(15n + #{$i + 1}):hover ~ .content {
+    --positionX: #{$i};
+  }
+  .cell:nth-child(n + #{15 * $i + 1}):nth-child(-n + #{15 * ($i + 1)}):hover ~ .content {
+    --positionY: #{$i};
+  }
+}
+
+.content {
+  --positionX: 7;
+  --positionY: 7;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.css {
+  font-family: 'Fredoka One', cursive;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: color 3s infinite linear;
+  text-shadow: 0 0 10px #000a;
+  transition: all 0.5s;
+
+  @for $i from 0 to 10 {
+    &:nth-child(#{$i + 1}) {
+      font-size: #{100 + $i * 10}px;
+      animation-delay: #{$i * -0.3}s;
+      opacity: #{0.1 + $i * 0.1};
+      transform: translateX(calc(-50% - (var(--positionX) - 7) * #{(7 - $i) * 3px}))
+        translateY(calc(-50% - (var(--positionY) - 7) * #{(7 - $i) * 3px}))
+        rotateX(calc(0deg - (var(--positionY) - 7) * 5deg))
+        rotateY(calc((var(--positionX) - 7) * 5deg));
+    }
+  }
+
+  @keyframes color {
+    @for $c from 0 through 10 {
+      #{$c * 10%} {
+        color: hsl(36 * $c, 75%, 75%);
+      }
+    }
+  }
+}
+
+//
+
+$avatar-size: 32px;
+$body-background: #353535;
+
+@font-face {
+  font-family: 'ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Lato Light Italic'), local('Lato-LightItalic'),
+    url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2) format('woff2');
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: $body-background;
+  font-family: 'ubuntu', Arial, sans-serif;
+  overflow-x: hidden;
+  display: grid;
+  place-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #9ca0b1;
+}
+
+.wrapper {
+  text-align: center;
+  h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Josefin Sans', sans-serif;
+    background: linear-gradient(
+      to right,
+      #68a2ff 10%,
+      #9571f1 20%,
+      #b623ff 30%,
+      #8349ff 60%,
+      #7259ff 80%,
+      #c354ff 60%,
+      #5e84ff 20%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 1.5s linear infinite;
+    display: inline-block;
+  }
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}

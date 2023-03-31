@@ -4,6 +4,7 @@ import CommandBarProvider from '@/components/CommandBar';
 import LottieConfetti from '@/components/LottieConfetti';
 import Sparkles from '@/components/Sparkles';
 import Splash from '@/components/Splash';
+import { CoolTitle1, CoolTitle2, CoolTitle3 } from './components/CoolTitle';
 
 const Background: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -22,11 +23,17 @@ const App = () => {
     <CommandBarProvider>
       <Background>
         <main>
-          <h1>I love what I do</h1>
-          <h2>we love what we do</h2>
-          <strong>
-            <Sparkles>it shows</Sparkles>
-          </strong>
+          <CoolTitle1 />
+
+          {/* <CoolTitle2 text="we love" /> */}
+          {/* <h2>I love what I do</h2>
+          <CoolTitle3 text="we love what we do" />
+          <br />
+          <h3>
+            <strong>
+              <Sparkles>it shows</Sparkles>
+            </strong>
+          </h3> */}
         </main>
       </Background>
     </CommandBarProvider>
