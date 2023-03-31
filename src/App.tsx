@@ -4,7 +4,8 @@ import CommandBarProvider from '@/components/CommandBar';
 import LottieConfetti from '@/components/LottieConfetti';
 import Sparkles from '@/components/Sparkles';
 import Splash from '@/components/Splash';
-import { CoolTitle1, CoolTitle2, CoolTitle3 } from './components/CoolTitle';
+import { CoolTitle1, CoolTitle2, CoolTitle3 } from '@/components/CoolTitle';
+import ImgBouncer from '@/components/ImgBouncer';
 
 const Background: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
             </strong>
           </h3> */}
         </main>
+        <ImgBouncer src={'nan10.png'} />
       </Background>
     </CommandBarProvider>
   );

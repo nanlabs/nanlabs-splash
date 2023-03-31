@@ -1,0 +1,88 @@
+img {
+  z-index: var(--z-index-animImg);
+}
+
+.box {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: var(--z-index-animImg);
+}
+
+.box img {
+  display: flex;
+  position: absolute;
+  -webkit-animation: moveX 8s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -moz-animation: moveX 8s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  -o-animation: moveX 8s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+  animation: moveX 8s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: 90vw;
+  }
+}
+@-moz-keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: 90vw;
+  }
+}
+@-o-keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: 90vw;
+  }
+}
+@keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: 90vw;
+  }
+}
+
+@-webkit-keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: 82vh;
+  }
+}
+@-moz-keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: 82vh;
+  }
+}
+@-o-keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: 82vh;
+  }
+}
+@keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: 82vh;
+  }
+}
